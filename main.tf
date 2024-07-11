@@ -4,7 +4,6 @@ terraform {
       source  = "devops-rob/terracurl"
       version = "1.2.1"
     }
-
   }
 }
 
@@ -111,10 +110,9 @@ resource "terracurl_request" "cloud-dg" {
 
 }
 
-
 # Associate CloudNGFW Device Group with tenant
 resource "terracurl_request" "assoc-cloud-dg-tenant" {
-  name   = "cloud-dg-tenant-association"
+  name   = "cloud-dg-tenant-association-${var.device_group_name}-${var.template_stack_name}"
   url    = "https://${var.hostname}/api?type=op"
   method = "POST"
   request_parameters = {
@@ -193,7 +191,7 @@ resource "terracurl_request" "assoc-cloud-dg-tenant" {
 
 # Associate CloudNGFW Device Group with CloudNGFW resource
 resource "terracurl_request" "assoc-cloud-dg-cngfw" {
-  name   = "cloud-dg-cngfw-association"
+  name   = "cloud-dg-cngfw-association-${var.device_group_name}-${var.template_stack_name}"
   url    = "https://${var.hostname}/api?type=op"
   method = "POST"
   request_parameters = {
@@ -281,4 +279,22 @@ resource "terracurl_request" "assoc-cloud-dg-cngfw" {
   ]
 }
 
+resource "terraform_data" "commit" {
+  triggers_replace = [
+    terracurl_request.cloud-dg.name,
+    terracurl_request.cloud-tpl-stack.name,
+    terracurl_request.assoc-cloud-dg-tenant.name,
+    terracurl_request.assoc-cloud-dg-cngfw.name
+  ]
 
+  provisioner "local-exec" {
+    command     = "go run commit.go -devicegroup ${terracurl_request.cloud-dg.name}"
+    working_dir = "${path.module}/scripts"
+
+    environment = {
+      PANOS_HOSTNAME = var.hostname
+      PANOS_API_KEY  = var.api_key
+    }
+  }
+
+}
