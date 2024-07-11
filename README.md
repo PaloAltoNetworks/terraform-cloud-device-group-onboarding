@@ -28,6 +28,7 @@ Once the onboarding process is completed you may want to use the [panos](https:/
 | Name | Version |
 |------|---------|
 | <a name="provider_terracurl"></a> [terracurl](#provider\_terracurl) | 1.2.1 |
+| <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
 
@@ -37,15 +38,17 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [terracurl_request.assoc-cloud-dg-cngfw](https://registry.terraform.io/providers/devops-rob/terracurl/1.2.1/docs/resources/request) | resource |
 | [terracurl_request.assoc-cloud-dg-tenant](https://registry.terraform.io/providers/devops-rob/terracurl/1.2.1/docs/resources/request) | resource |
 | [terracurl_request.cloud-dg](https://registry.terraform.io/providers/devops-rob/terracurl/1.2.1/docs/resources/request) | resource |
 | [terracurl_request.cloud-tpl-stack](https://registry.terraform.io/providers/devops-rob/terracurl/1.2.1/docs/resources/request) | resource |
+| [terraform_data.commit](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_api_key"></a> [api\_key](#input\_api\_key) | API key for the Panorama instance<br>    More info - https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-panorama-api/get-started-with-the-pan-os-xml-api/get-your-api-key#idca192ed7-45df-4992-a0f7-41ebe94fbdac | `string` | n/a | yes |
+| <a name="input_api_key"></a> [api\_key](#input\_api\_key) | type        = string<br>    API key for the Panorama instance<br>    More info - https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-panorama-api/get-started-with-the-pan-os-xml-api/get-your-api-key#idca192ed7-45df-4992-a0f7-41ebe94fbdac | `any` | n/a | yes |
 | <a name="input_aws_account_id"></a> [aws\_account\_id](#input\_aws\_account\_id) | AWS account ID of the CloudNGFW resource | `string` | n/a | yes |
 | <a name="input_cngfw_id"></a> [cngfw\_id](#input\_cngfw\_id) | ID of the CloudNGFW resource | `string` | n/a | yes |
 | <a name="input_cngfw_name"></a> [cngfw\_name](#input\_cngfw\_name) | Name of the CloudNGFW resource | `string` | n/a | yes |
@@ -59,5 +62,8 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_device_group"></a> [device\_group](#output\_device\_group) | The device group name to be used when configuring firewalls (cngfw-aws prepended to the value of var.device\_group\_name) |
+| <a name="output_template_stack"></a> [template\_stack](#output\_template\_stack) | The template stack name to be used when configuring firewalls (cngfw-aws prepended to the value of var.template\_stack\_name) |
 <!-- END_TF_DOCS -->
