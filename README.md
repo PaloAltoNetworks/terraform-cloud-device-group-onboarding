@@ -48,7 +48,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_api_key"></a> [api\_key](#input\_api\_key) | type        = string<br>    API key for the Panorama instance<br>    More info - https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-panorama-api/get-started-with-the-pan-os-xml-api/get-your-api-key#idca192ed7-45df-4992-a0f7-41ebe94fbdac | `any` | n/a | yes |
+| <a name="input_api_key"></a> [api\_key](#input\_api\_key) | API key for the Panorama instance<br>    More info - https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-panorama-api/get-started-with-the-pan-os-xml-api/get-your-api-key#idca192ed7-45df-4992-a0f7-41ebe94fbdac | `string` | n/a | yes |
 | <a name="input_aws_account_id"></a> [aws\_account\_id](#input\_aws\_account\_id) | AWS account ID of the CloudNGFW resource | `string` | n/a | yes |
 | <a name="input_cngfw_id"></a> [cngfw\_id](#input\_cngfw\_id) | ID of the CloudNGFW resource | `string` | n/a | yes |
 | <a name="input_cngfw_name"></a> [cngfw\_name](#input\_cngfw\_name) | Name of the CloudNGFW resource | `string` | n/a | yes |

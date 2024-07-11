@@ -5,10 +5,10 @@ variable "hostname" {
 
 variable "api_key" {
   description = <<EOF
-  type        = string
     API key for the Panorama instance
     More info - https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-panorama-api/get-started-with-the-pan-os-xml-api/get-your-api-key#idca192ed7-45df-4992-a0f7-41ebe94fbdac
   EOF
+  type        = string
 }
 
 variable "device_group_name" {
