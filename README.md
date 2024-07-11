@@ -1,4 +1,4 @@
-# Panorama Cloud Device Group Onboarding Terraform Module
+# Panorama Cloud Device Group Onboarding Terraform Module for Cloud NGFW
 
 This is a helper module that can be used when onboarding Cloud NGFWs to Panorama Cloud Device Groups.
 
