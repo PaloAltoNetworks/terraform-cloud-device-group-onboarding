@@ -7,8 +7,6 @@ terraform {
   }
 }
 
-provider "terracurl" {}
-
 # Create Template Stack for CloudNGFW
 resource "terracurl_request" "cloud-tpl-stack" {
   name   = "cngfw-aws-${var.template_stack_name}"

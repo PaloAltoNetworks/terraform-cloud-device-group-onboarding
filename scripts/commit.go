@@ -71,8 +71,9 @@ func initializePanorama(hostname, apiKey string, timeout int) (*pango.Panorama, 
 
 func performCommit(pano *pango.Panorama, deviceGroup string, force bool, sleepTime int64) error {
 	cmd := commit.PanoramaCommit{
+		// Note: We have to commit "other" DG along with Cloud DG for commit to be successful
 		// DeviceGroups: []string{deviceGroup},
-		Description: "Commit from Go",
+		Description: flag.Arg(0),
 		Force:       force,
 	}
 	sleepDuration := time.Duration(sleepTime) * time.Second
@@ -91,7 +92,7 @@ func performCommit(pano *pango.Panorama, deviceGroup string, force bool, sleepTi
 func performPush(pano *pango.Panorama, deviceGroup string, sleepTime int64) error {
 	cmd := commit.PanoramaCommitAll{
 		Type:        commit.TypeDeviceGroup,
-		Description: "Push from Go",
+		Description: flag.Arg(0),
 		Name:        deviceGroup,
 	}
 	sleepDuration := time.Duration(sleepTime) * time.Second
