@@ -286,7 +286,7 @@ resource "terraform_data" "commit" {
   ]
 
   provisioner "local-exec" {
-    command     = "go run commit.go -devicegroup ${terracurl_request.cloud-dg.name}"
+    command     = "go run commit.go -devicegroup ${terracurl_request.cloud-dg.name} ${var.commit_message}"
     working_dir = "${path.module}/scripts"
 
     environment = {

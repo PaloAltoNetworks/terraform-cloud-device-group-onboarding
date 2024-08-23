@@ -56,3 +56,9 @@ variable "cngfw_name" {
   description = "Name of the CloudNGFW resource"
   type        = string
 }
+
+variable "commit_message" {
+  description = "Description to use when commiting the configuration to Panorama"
+  type        = string
+  default     = "Commit via Go"
+}
